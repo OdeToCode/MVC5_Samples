@@ -39,6 +39,13 @@ namespace KatanaWebApi
             );
            
             app.UseWebApi(config);
+
+            InstallHandler(app); // grabs requests not handled by WebAPI
+        }
+
+        private void InstallHandler(IAppBuilder app)
+        {
+            app.Run(ctx => ctx.Response.WriteAsync("Hello!"));
         }
 
         private static void InstallMiddleware(IAppBuilder app)
