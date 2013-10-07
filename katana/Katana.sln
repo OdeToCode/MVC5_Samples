@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatanaWebApi", "KatanaWebAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatanaIIS", "KatanaIIS\KatanaIIS.csproj", "{74DA9E98-B63C-4F6F-BD23-320477CCA53B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatanaAppFunc", "KatanaAppFunc\KatanaAppFunc.csproj", "{ADC86BB3-EBF9-4155-AC95-FB194C0A2FA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{74DA9E98-B63C-4F6F-BD23-320477CCA53B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74DA9E98-B63C-4F6F-BD23-320477CCA53B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74DA9E98-B63C-4F6F-BD23-320477CCA53B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADC86BB3-EBF9-4155-AC95-FB194C0A2FA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADC86BB3-EBF9-4155-AC95-FB194C0A2FA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADC86BB3-EBF9-4155-AC95-FB194C0A2FA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADC86BB3-EBF9-4155-AC95-FB194C0A2FA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
