@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B045AD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatanaMiddleware", "KatanaMiddleware\KatanaMiddleware.csproj", "{ED5BBA1F-BAEE-425B-B037-FB21D9EDE305}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatanaWebApi", "KatanaWebApi\KatanaWebApi.csproj", "{AB231DE3-4EE0-4683-BA13-CA3B330A36C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{ED5BBA1F-BAEE-425B-B037-FB21D9EDE305}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED5BBA1F-BAEE-425B-B037-FB21D9EDE305}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED5BBA1F-BAEE-425B-B037-FB21D9EDE305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB231DE3-4EE0-4683-BA13-CA3B330A36C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB231DE3-4EE0-4683-BA13-CA3B330A36C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB231DE3-4EE0-4683-BA13-CA3B330A36C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB231DE3-4EE0-4683-BA13-CA3B330A36C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
