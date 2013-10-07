@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B045AD
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatanaMiddleware", "KatanaMiddleware\KatanaMiddleware.csproj", "{ED5BBA1F-BAEE-425B-B037-FB21D9EDE305}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +24,10 @@ Global
 		{7B8B6E91-6D96-4300-9C79-0D355953D952}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B8B6E91-6D96-4300-9C79-0D355953D952}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B8B6E91-6D96-4300-9C79-0D355953D952}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED5BBA1F-BAEE-425B-B037-FB21D9EDE305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED5BBA1F-BAEE-425B-B037-FB21D9EDE305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED5BBA1F-BAEE-425B-B037-FB21D9EDE305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED5BBA1F-BAEE-425B-B037-FB21D9EDE305}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
