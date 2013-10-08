@@ -19,8 +19,21 @@ namespace BasicIdentityWithDiagrams.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
-            //SeedUserOnly(context);          
-            SeedUserAndRole(context);
+            //SeedUserOnly(context);
+            SeedUserWithUserManager(context);
+            //SeedUserAndRole(context);
+        }
+
+        private void SeedUserWithUserManager(ApplicationDbContext context)
+        {
+            if (!context.Users.Any(u => u.UserName == "sallen"))
+            {
+                var store = new UserStore<ApplicationUser>(context);
+                var manager = new UserManager<ApplicationUser>(store);
+                var user = new ApplicationUser { UserName = "sallen" };
+
+                manager.Create(user, "password");
+            }
         }
 
         private static void SeedUserOnly(ApplicationDbContext context)
