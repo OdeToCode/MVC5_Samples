@@ -5,6 +5,14 @@
     {
     @Html.AntiForgeryToken()
 
+    
+    
+    var claimsPrincipal = User as System.Security.Claims.ClaimsPrincipal;              
+    foreach(var claim in claimsPrincipal.Claims)
+    {
+        <div>@claim.Type @claim.Value</div>
+    }
+    
     <ul class="nav navbar-nav navbar-right">
         <li>
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })

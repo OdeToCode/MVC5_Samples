@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using BasicIdentityWithDiagrams.Models;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace BasicIdentityWithDiagrams.Controllers
 {
@@ -196,7 +197,26 @@ namespace BasicIdentityWithDiagrams.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
-            var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
+            // no - it simplifies it
+            // var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
+
+            var result = await AuthenticationManager.AuthenticateAsync("ExternalCookie");
+            var emailClaim = result.Identity.Claims.FirstOrDefault(
+                c => c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress");
+            var email = emailClaim != null ? emailClaim.Value : "";
+
+            ExternalLoginInfo loginInfo = null;
+            Claim nameClaim = result.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier");
+            if (nameClaim != null)
+            {
+                string str = result.Identity.Name.Replace(" ", "");
+                loginInfo =  new ExternalLoginInfo()
+                {
+                    Login = new UserLoginInfo(nameClaim.Issuer, nameClaim.Value),
+                    DefaultUserName = str
+                };
+            }
+            
             if (loginInfo == null)
             {
                 return RedirectToAction("Login");

@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.Google;
 using Owin;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace BasicIdentityWithDiagrams
 {
@@ -32,7 +36,22 @@ namespace BasicIdentityWithDiagrams
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication();
+            app.UseGoogleAuthentication(
+                new GoogleAuthenticationOptions
+                {
+                    Provider = new MyGoogleAuthProvider()
+                }                                
+            );
+        }
+    }
+
+    class MyGoogleAuthProvider : GoogleAuthenticationProvider
+    {
+        public override Task Authenticated(GoogleAuthenticatedContext context)
+        {        
+            // custom processing ...
+
+            return base.Authenticated(context);
         }
     }
 }
