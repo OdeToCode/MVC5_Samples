@@ -9,6 +9,12 @@
 
 </head>
 <body>
+    <div class="well">
+        <label class="checkbox">
+            Use Bootstrap styles
+            <input type="checkbox" id="bootstrapcheck" checked />
+        </label>
+    </div>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -29,14 +35,7 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
-
-        <div class="well">
-            <label class="checkbox">
-                Add Bootstrap styles
-                <input type="checkbox" id="bootstrapcheck" />
-            </label>
-        </div>
+    <div class="container body-content">       
 
         @RenderBody()
         <hr />
@@ -78,6 +77,9 @@
                 $("#fluidgridcheck").click(function () {
                     $("#fluidgrid").toggle();
                 });
+
+                turnOnBootstrap();
+
             });
         }());
 
