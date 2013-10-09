@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    <div class="well">
+    <div class="well container">
         <label class="checkbox">
             Use Bootstrap styles
             <input type="checkbox" id="bootstrapcheck" checked />
@@ -28,8 +28,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Grids", "Grids", "Home")</li>                    
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

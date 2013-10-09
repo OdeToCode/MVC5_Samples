@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Grids";
+}
+
+<style>
+    .row > div {
+        background-color:#cccc99;       
+    }
+</style>
+
+<h2>Grids</h2>
+
+<h3>12 col-md-1</h3>
+<div class="row">
+    <div class="col-md-1">1</div>
+    <div class="col-md-1">1</div>
+    <div class="col-md-1">1</div>
+    <div class="col-md-1">1</div>
+    <div class="col-md-1">1</div>
+    <div class="col-md-1">1</div>
+    <div class="col-md-1">1</div>
+    <div class="col-md-1">1</div>
+    <div class="col-md-1">1</div>
+    <div class="col-md-1">1</div>
+    <div class="col-md-1">1</div>
+    <div class="col-md-1">1</div>
+</div>
+
+<h3>3 col-md-4</h3>
+<div class="row">
+    <div class="col-md-4">4</div>
+    <div class="col-md-4">4</div>
+    <div class="col-md-4">4</div>   
+</div>
+
+<h3>Offset</h3>
+<div class="row">
+    <div class="col-md-3">3</div>    
+    <div class="col-md-3 col-md-offset-6">3 offset 6</div>
+</div>
+
+
+<h3>Push and Pull</h3>
+<div class="row">
+    <div class="col-md-9 col-md-push-3">First in markup</div>
+    <div class="col-md-3 col-md-pull-9">Second in markup</div>
+</div>
+
+<h3>10 & 2</h3>
+<div class="row">
+    <div class="col-md-2">2</div>
+    <div class="col-md-10">10</div>
+</div>
+
+<h3>One 12</h3>
+<div class="row">
+    <div class="col-md-12">12</div>    
+</div>
+
+
+<h3>Always horizonal layout, even for <b>extra</b> small devices</h3>
+<div class="row">
+    <div class="col-md-4 col-xs-4">4</div>
+    <div class="col-md-4 col-xs-4">4</div>
+    <div class="col-md-4 col-xs-4">4</div>
+</div>
+
+<h3>Always horizonal layout, even for <b>small</b> devices (but not extra small)</h3>
+<div class="row">
+    <div class="col-md-4 col-sm-4">4</div>
+    <div class="col-md-4 col-sm-4">4</div>
+    <div class="col-md-4 col-sm-4">4</div>
+</div>
+
+<h3>Only horizontal on <b>large</b> devices</h3>
+<div class="row">
+    <div class="col-lg-4">4</div>
+    <div class="col-lg-4">4</div>
+    <div class="col-lg-4">4</div>
+</div>
+
+<h3>Change proportion on smaller devices</h3>
+<div class="row">
+    <div class="col-xs-10 col-md-6">xs10 md6</div>
+    <div class="col-xs-2 col-md-6" >xs2 md 6</div>
+</div>
