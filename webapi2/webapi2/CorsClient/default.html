@@ -5,11 +5,12 @@
 </head>
 <body>
 
-    <h3>CORS Request</h3>
-
+    <h3>CORS Request</h3>  
+    
+    <button id="getPatients">Get Patients</button>
 
     <pre id="output">
-
+        
     </pre>
 
     <script src="Scripts/jquery-2.0.3.js"></script>
@@ -17,20 +18,23 @@
 
         $(function () {
 
-            var $output = $("#output");
+            var getPatients = function () {
+                var url = baseUrl + "patient";
+                $.get(url).always(showResponse);
+                return false;
+            };           
 
             var showResponse = function (error) {
                 $output.text(JSON.stringify(error, null, 4));
             };
-            
-            var url = "http://localhost:20239/api/patient";
 
-            $.get(url).always(showResponse);
+            var baseUrl = "http://localhost:20239/api/";
+ 
+            var $output = $("#output");
 
+            $("#getPatients").click(getPatients);
         });
-
-       
-
+      
     </script>
 
 </body>

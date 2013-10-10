@@ -9,11 +9,13 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using WebApi2.Models;
+using MongoDB.Bson;
 
 namespace WebApi2.Controllers
 {
 
-    [EnableCors(origins:"*", headers:"*", methods:"GET")]
+    //     [EnableCors(origins:"*", headers:"*", methods:"GET")] enabled globally
+    [Authorize]
     public class PatientController : ApiController
     {
         MongoCollection<Patient> _db;
@@ -32,7 +34,7 @@ namespace WebApi2.Controllers
 
         public IHttpActionResult Get(string id)
         {
-            var patient = _db.FindOneById(id);
+            var patient = _db.FindOneById(ObjectId.Parse(id));
             if (patient == null)
             {
                 return NotFound();
@@ -43,7 +45,7 @@ namespace WebApi2.Controllers
         [Route("api/patient/{id}/medications")]
         public IHttpActionResult GetMedications(string id)
         {
-            var patient = _db.FindOneById(id);
+            var patient = _db.FindOneById(ObjectId.Parse(id));
             if (patient == null)
             {
                 return NotFound();
