@@ -1,7 +1,7 @@
-﻿using MongoRepository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MongoDB.Driver.Linq;
 using System.Web;
 using WebApi2.Models;
 
@@ -11,8 +11,9 @@ namespace WebApi2
     {
         internal static void SeedDatabase()
         {
-            var repository = new MongoRepository<Patient>();
-            if (!repository.Any(p => p.Name == "Scott"))
+            var db = PatientDb.Open();
+            
+            if(!db.AsQueryable().Any(p => p.Name == "Scott"))           
             {
                 var patients = new List<Patient>()
                 {
@@ -30,7 +31,7 @@ namespace WebApi2
                     }
                 };
 
-                repository.Add(patients);
+                db.InsertBatch(patients);
             }
         }
     }

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+    <h3>CORS Request</h3>
+
+
+    <pre id="output">
+
+    </pre>
+
+    <script src="Scripts/jquery-2.0.3.js"></script>
+    <script>
+
+        $(function () {
+
+            var $output = $("#output");
+
+            var showResponse = function (error) {
+                $output.text(JSON.stringify(error, null, 4));
+            };
+            
+            var url = "http://localhost:20239/api/patient";
+
+            $.get(url).always(showResponse);
+
+        });
+
+       
+
+    </script>
+
+</body>
+</html>
