@@ -7,6 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi2", "WebApi2\WebApi2.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiSPA", "WebApiSPA\WebApiSPA.csproj", "{4CFDCA2D-EC57-4E7D-9F68-292883A47023}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsClient", "CorsClient\CorsClient.csproj", "{F9DEBBCC-F0E8-4029-AEDB-81C6471B78F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FBE043F4-82E8-4063-9B9E-B65474F64566}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +30,10 @@ Global
 		{4CFDCA2D-EC57-4E7D-9F68-292883A47023}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CFDCA2D-EC57-4E7D-9F68-292883A47023}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CFDCA2D-EC57-4E7D-9F68-292883A47023}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9DEBBCC-F0E8-4029-AEDB-81C6471B78F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9DEBBCC-F0E8-4029-AEDB-81C6471B78F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9DEBBCC-F0E8-4029-AEDB-81C6471B78F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9DEBBCC-F0E8-4029-AEDB-81C6471B78F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
