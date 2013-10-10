@@ -19,20 +19,31 @@ namespace WebApi2.Controllers
         }
 
         // GET api/patient
-        public HttpResponseMessage Get()
-        {
-            return Request.CreateResponse(HttpStatusCode.OK, _repository);
+        [Queryable]
+        public IQueryable<Patient> Get()
+        {   
+            return _repository;
         }
 
-        // GET api/patient/5
-        public HttpResponseMessage Get(string id)
+        public IHttpActionResult Get(string id)
         {
             var patient = _repository.FirstOrDefault(p => p.Id == id);
             if (patient == null)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Patient not found!");
+                return NotFound();
             }
-            return Request.CreateResponse(HttpStatusCode.OK, patient);
-        }       
+            return Ok(patient);                
+        }
+        
+        [Route("api/patient/{id}/medications")]
+        public IHttpActionResult GetMedications(string id)
+        {
+            var patient = _repository.FirstOrDefault(p => p.Id == id);
+            if (patient == null)
+            {
+                return NotFound();
+            }
+            return Ok(patient.Medications.ToList());
+        }   
     }
 }
