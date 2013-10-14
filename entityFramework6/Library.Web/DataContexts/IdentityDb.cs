@@ -13,5 +13,11 @@ namespace Library.Web.DataContexts
             : base("DefaultConnection")
         {
         }
+
+        protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder)
+        {
+            modelBuilder.HasDefaultSchema("identity");
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Library.Entities;
 using Library.Web.DataContexts;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Library.Web.Controllers
 {
@@ -18,9 +19,15 @@ namespace Library.Web.Controllers
         private BookDb db = new BookDb();
 
         // GET: /Book/
-        public async Task<ActionResult> Index()
+        //public async Task<ActionResult> Index(CancellationToken token)
+        //{
+        //    return View(await db.Books.ToListAsync(token));
+        //}
+
+        // GET: /Book/
+        public ActionResult Index()
         {
-            return View(await db.Books.ToListAsync());
+            return View(db.Books.ToList());
         }
 
         // GET: /Book/Details/5
