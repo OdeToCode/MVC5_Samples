@@ -1,0 +1,13 @@
+﻿@using Library.Entities
+@{
+    var type = ViewData.ModelMetadata.ModelType;  
+    var names = Enum.GetNames(type);
+    var values = Enum.GetValues(type).Cast<Genre>();    
+    
+    var items = names.Zip(values, (n, v) => new SelectListItem { 
+        Text = n, 
+        Value = v.ToString(), 
+        Selected = v == ViewData.Model  });
+
+    @Html.DropDownList("", items) 
+}
