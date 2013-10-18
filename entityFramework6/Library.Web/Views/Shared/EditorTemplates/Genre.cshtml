@@ -1,10 +1,9 @@
 ﻿@using Library.Entities
 @using Library.Web.Helpers
 
-@{
-   
+@{   
     var type = ViewData.ModelMetadata.ModelType;
-    var items = type.EnumToItems((object)Model);    
+    var items = EnumHelper.GetItems(type, (int)Model);       
 }
 
 @Html.DropDownList("", items)

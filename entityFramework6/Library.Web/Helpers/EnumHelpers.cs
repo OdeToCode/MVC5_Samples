@@ -7,9 +7,11 @@ using System.Web.Mvc;
 
 namespace Library.Web.Helpers
 {
-    public static class EnumHelpers
+    public static class EnumHelper
     {
-        public static IEnumerable<SelectListItem> EnumToItems(this Type enumType, object selected)
+        public static IEnumerable<SelectListItem> GetItems(
+            Type enumType, 
+            int selected)
         {
             if (!typeof(Enum).IsAssignableFrom(enumType))
             {
@@ -17,7 +19,7 @@ namespace Library.Web.Helpers
             }
 
             var names = Enum.GetNames(enumType);
-            var values = Enum.GetValues(enumType).Cast<object>();
+            var values = Enum.GetValues(enumType).Cast<int>();
 
             var items =  names.Zip(values, (name, value) =>
                 new SelectListItem
