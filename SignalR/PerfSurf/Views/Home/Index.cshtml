@@ -7,17 +7,14 @@
 <div class="row">
     <div class="col-md-4">
         <label>
-            Select a category
-            <select size="5" data-bind="options: performanceCounters, 
-                                         optionsText:'name',                                         
-                                         value:selectedCounter"></select>
+            Your message:
+            <input type="text" data-bind="value:message" />
         </label>
-    </div>
-    <div class="col-md-4">
-        <button class="btn btn-primary" data-bind="click: watchCounter">Watch it!</button>
-    </div>    
-    <div class="col-md-4">
-        <div data-bind="text: message"></div>
+        <button class="btn btn-primary" data-bind="click: sendMessage">Send</button>
+
+        <div data-bind="foreach: messages">
+            <div data-bind="text: $data"></div>
+        </div>
     </div>
 </div>
 
@@ -29,50 +26,56 @@
     <script>
 
         var perfHub = $.connection.perfHub;
-        $.connection.hub.start().done(function () {
-            perfHub.server.hello("Scott");
-        });
-        
-        perfHub.client.hello = function (message) {
-            model.message(model.message() + message);
+        perfHub.client.newMessage = function (message) {
+            model.messages.push(message);
         };
 
-        var Model = function(){
+
+        var Model = function () {
             var self = this;
             self.message = ko.observable(""),
+            self.messages = ko.observableArray(),
             self.performanceCounters = ko.observableArray(),
             self.selectedCounter = ko.observable(),
             self.watchedCounters = ko.observableArray()
         };
-        
+
         Model.prototype = {
 
-            watchCounter: function(){
-                var self = this;               
+            sendMessage: function () {
+                var self = this;
+                perfHub.server.send(self.message());
+                self.message("");
+            },
+
+            watchCounter: function () {
+                var self = this;
                 self.watchedCounters.push(self.selectedCounter());
             },
 
             getCounters: function () {
                 var self = this;
-                $.get("/perf/counters").success(function (data) {
-                    self.addCounters(data);
-                });
+
             },
 
-            addCounters: function(counters){
-                var self =  this;
-                $.each(counters, function(index, value){
+            addCounters: function (counters) {
+                var self = this;
+                $.each(counters, function (index, value) {
                     self.performanceCounters.push(value);
                 });
             }
-
         };
-                
+
         var model = new Model();
-        
+
+
+
         var init = function () {
             ko.applyBindings(model);
-            model.getCounters();            
+            $.connection.hub.start().done(function () {
+                model.getCounters();
+            });
+            model.getCounters();
         };
 
         $(init);
