@@ -10,11 +10,18 @@
             Your message:
             <input type="text" data-bind="value:message" />
         </label>
-        <button class="btn btn-primary" data-bind="click: sendMessage">Send</button>
-
+        <button class="btn btn-primary" data-bind="click: sendMessage">Send</button>       
+    </div>
+    <div class="col-md-4">
         <div data-bind="foreach: messages">
-            <div data-bind="text: $data"></div>
+            <div data-bind="text:$data"></div>
         </div>
+    </div>
+</div>
+<div class="row" data-bind="foreach: counters">
+    <div class="col-md-12">
+        <h2 data-bind="text:name"></h2>
+        <canvas data-bind="attr: {'id': name}" height="100" width="800"></canvas>
     </div>
 </div>
 
@@ -23,62 +30,77 @@
     <script src="~/Scripts/knockout-2.3.0.js"></script>
     <script src="~/Scripts/jquery.signalR-2.0.0.js"></script>
     <script src="~/signalr/hubs"></script>
+    <script src="~/Scripts/smoothie.js"></script>
     <script>
-
-        var perfHub = $.connection.perfHub;
-        perfHub.client.newMessage = function (message) {
-            model.messages.push(message);
-        };
-
-
-        var Model = function () {
-            var self = this;
-            self.message = ko.observable(""),
-            self.messages = ko.observableArray(),
-            self.performanceCounters = ko.observableArray(),
-            self.selectedCounter = ko.observable(),
-            self.watchedCounters = ko.observableArray()
-        };
-
-        Model.prototype = {
-
-            sendMessage: function () {
+        (function () {
+            var perfHub = $.connection.perfHub;
+            $.connection.hub.start();
+            perfHub.client.newMessage = function (message) {
+                model.addMessage(message);
+            };
+            perfHub.client.newCounters = function (counters) {
+                model.addCounters(counters);
+            };
+           
+            var ChartEntry = function (name) {
                 var self = this;
-                perfHub.server.send(self.message());
-                self.message("");
-            },
+                self.name = name;                
+                self.chart = new SmoothieChart({ millisPerPixel:25, labels: { fontSize: 15 } });
+                self.timeSeries = new TimeSeries();
+                self.chart.addTimeSeries(self.timeSeries, { lineWidth: 3, strokeStyle: '#00ff00' });
 
-            watchCounter: function () {
-                var self = this;
-                self.watchedCounters.push(self.selectedCounter());
-            },
-
-            getCounters: function () {
-                var self = this;
-
-            },
-
-            addCounters: function (counters) {
-                var self = this;
-                $.each(counters, function (index, value) {
-                    self.performanceCounters.push(value);
-                });
+                self.start = function () {
+                    self.canvas = $("#" + name);
+                    self.chart.streamTo(self.canvas.get(0));
+                };
             }
-        };
 
-        var model = new Model();
+            var Model = function () {
+                var self = this;
+                self.message = ko.observable(""),
+                self.messages = ko.observableArray(),
+                self.counters = ko.observableArray()
+            };
 
+            Model.prototype = {
 
+                addCounters: function(updatedCounters){
+                    var self = this;
+                    
+                    $.each(updatedCounters, function (index, updatedCounter) {
+                        var entry = ko.utils.arrayFirst(self.counters(), function (counter) {
+                            return counter.name == updatedCounter.name;
+                        });
 
-        var init = function () {
-            ko.applyBindings(model);
-            $.connection.hub.start().done(function () {
-                model.getCounters();
-            });
-            model.getCounters();
-        };
+                        if (!entry) {
+                            entry = new ChartEntry(updatedCounter.name);
+                            self.counters.push(entry);
+                            entry.start();
+                        }
+                        entry.timeSeries.append(new Date().getTime(), updatedCounter.value);
+                    });
+                },
 
-        $(init);
+                addMessage: function(message){
+                    var self = this;
+                    self.messages.push(message);
+                },
+
+                sendMessage: function () {
+                    var self = this;
+                    perfHub.server.send(self.message());
+                    self.message("");
+                },
+            };
+
+            var model = new Model();
+
+            var init = function () {                
+                ko.applyBindings(model);                
+            };
+
+            $(init);
+        }());
     </script>
 
 }
