@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PerfSurf.Models;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -11,52 +12,39 @@ namespace PerfSurf.Controllers
 {
     public class PerfController : ApiController
     {
-        [Route("perf/categories")]
-        public IHttpActionResult GetPerformanceCategories()
-        {
-            var model = PerformanceCounterCategory
-                .GetCategories()
-                .OrderBy(c => c.CategoryName)
-                .Select(c => CleanName(c.CategoryName));
-
-            return Ok(model);
-        }
+       
      
-        [Route("perf/{category}/counters")]
-        public IHttpActionResult GetCounters(string category)
-        {
-            var counterCategory =
-                PerformanceCounterCategory
-                    .GetCategories()
-                    .Where(c => CleanName(c.CategoryName) == category)
-                    .FirstOrDefault();
+        //[Route("perf/{id}/counters")]
+        //public IHttpActionResult GetCounters(string category)
+        //{
+        //    var counterCategory =
+        //        PerformanceCounterCategory
+        //            .GetCategories()
+        //            .Where(c => CleanName(c.CategoryName) == category)
+        //            .FirstOrDefault();
 
-            if (counterCategory == null)
-            {
-                return NotFound();
-            }
+        //    if (counterCategory == null)
+        //    {
+        //        return NotFound();
+        //    }
             
-            var instance = GetDefaultInstance(counterCategory);
-            return Ok(counterCategory.GetCounters(instance).Select(c => c.CounterName));
-        }
+        //    var instance = GetDefaultInstance(counterCategory);
+        //    return Ok(counterCategory.GetCounters(instance).Select(c => c.CounterName));
+        //}
 
-        [Route("perf/{category}/counters/{counter}")]
-        public bool GetCounter(string category)
-        {
-            return true;
-        }
+        //[Route("perf/{category}/counters/{counter}")]
+        //public bool GetCounter(string category)
+        //{
+        //    return true;
+        //}
 
-        public string CleanName(string name)
+        protected override void Dispose(bool disposing)
         {
-            return Regex.Replace(name, "[:.]", "");
-        }
-
-        public string GetDefaultInstance(PerformanceCounterCategory category)
-        {
-            return category
-                .GetInstanceNames()
-                .OrderBy(n => n)
-                .FirstOrDefault();
+            if (db != null)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
      }
 }
