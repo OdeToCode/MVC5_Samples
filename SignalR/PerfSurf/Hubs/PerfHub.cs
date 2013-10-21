@@ -30,7 +30,7 @@ namespace PerfSurf.Hubs
                 {
                     var results = perfSerivce.GetResults();
                     Clients.All.newCounters(results);
-                    await Task.Delay(3000);
+                    await Task.Delay(2000);
                 }
 
             }, TaskCreationOptions.LongRunning);            
