@@ -7,7 +7,8 @@ namespace ModelBinding.Extensions
 {
     public class AccountModelBinder : DefaultModelBinder
     {
-        protected override object CreateModel(ControllerContext controllerContext, ModelBindingContext bindingContext, Type modelType)
+        protected override object CreateModel(ControllerContext controllerContext, 
+                                              ModelBindingContext bindingContext, Type modelType)
         {
             return new Account("Default");
         }

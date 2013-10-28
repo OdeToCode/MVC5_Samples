@@ -13,7 +13,7 @@ namespace ModelBinding.Controllers
         }
 
         public ActionResult SimpleDestination(string firstName, string lastName)
-        {
+        {            
             ViewBag.Name = firstName + " " + lastName;
             return View();
         }
