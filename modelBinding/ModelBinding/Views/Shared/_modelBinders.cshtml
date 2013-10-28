@@ -1,0 +1,20 @@
+﻿<table class="table table-striped">
+    <caption>Model Binders</caption>
+    <thead>
+        <tr>
+            <th>Key</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var binder in ModelBinders.Binders)
+        {
+            <tr>
+                <td>@binder.Key</td>
+                <td>
+                    @binder.Value.GetType().Name
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

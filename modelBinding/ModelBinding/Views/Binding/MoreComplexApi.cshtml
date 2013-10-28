@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "MoreComplexApi";
+}
+
+<h2>More Complex Api</h2>
+
+
+
+<pre id="request">
+    
+</pre>
+
+<button id="postData">POST</button>
+
+<pre id="response">
+</pre>
+
+@section scripts {
+    <script src="~/Scripts/bindingHelp.js"></script>
+    <script>
+        $(function () {
+
+            var data = {
+                name: "Engineering",
+                employees:[
+                    { firstName: "Scott", lastName:"Allen", hireDate:"1/1/2001"},
+                    { firstName: "Joy", lastName: "Allen", hireDate: "1/1/2001" },
+                    { firstName: "Sarah", lastName: "Allen", hireDate: "1/1/2001" }
+                ]
+            };
+
+            var url = "/api/binding/morecomplex";
+            $.showRequest(data);
+            $("#getData").click(function () {
+                $.get(url, data).always($.showResponse);
+            });
+
+            $("#postData").click(function () {
+                $.post(url, data).always($.showResponse); // no
+                $.post(url, "=scott").always($.showResponse); // yes
+            });
+
+        });
+    </script>
+}
+
+
+
+

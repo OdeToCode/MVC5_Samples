@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "ComplexApi";
+}
+
+<h2>ComplexApi</h2>
+
+<pre id="request">
+    
+</pre>
+
+<button id="postData">POST</button>
+
+<pre id="response">
+</pre>
+
+@section scripts {
+    <script src="~/Scripts/bindingHelp.js"></script>
+    <script>
+        $(function () {
+
+            var data = {
+                firstName: "Scott",
+                lastName: "Allen",
+                hireDate: "1/1/2001"
+            };
+
+            var url = "/api/binding/complex";
+            $.showRequest(data);
+           
+            $("#postData").click(function () {
+                $.post(url, data).always($.showResponse);                 
+            });
+
+        });
+    </script>
+}
+
+

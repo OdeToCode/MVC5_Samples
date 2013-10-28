@@ -1,0 +1,31 @@
+﻿<ul>
+    <li>
+        <a href="@url("simple")">Simple Binding</a>
+    </li>
+    <li>
+        <a href="@url("environment")">Model Binding Environment</a>
+    </li>
+    <li>
+        <a href="@url("complextype")">Complex Type</a>
+    </li>
+    <li>
+        <a href="@url("nested")">Nested & Complex</a>
+    </li>
+    <li>
+        <a href="@url("collection")">Collections</a>
+    </li>
+    <li>
+        <a href="@url("enumeration")">Enums</a>
+    </li>
+    <li>
+        <a href="@url("override")">Override DefaultModelBinder</a>
+    </li>
+    <li>
+        <a href="@url("custom")">Custom Model Binder</a>
+    </li>
+</ul>
+
+@helper  url(string action, object values = null)
+{
+    @Url.Action(action, "Binding", values)
+}

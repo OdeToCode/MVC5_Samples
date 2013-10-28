@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Encvionment Dump";
+}
+
+<h2>Binding Environment</h2>
+
+<table class="table table-condensed table-striped">
+    <caption>Value Providers</caption>
+    @foreach (var provider in ViewBag.ValueProviders)
+    {
+        <tr>
+            <td>@provider.GetType().Name</td>
+        </tr>
+    }
+</table>
+
+@Html.Partial("_modelStateTable")

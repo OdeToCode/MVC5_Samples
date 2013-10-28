@@ -1,9 +1,9 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using WebApi2.Areas.HelpPage.Models;
+using $rootnamespace$.Areas.HelpPage.Models;
 
-namespace WebApi2.Areas.HelpPage.Controllers
+namespace $rootnamespace$.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.
@@ -25,8 +25,7 @@ namespace WebApi2.Areas.HelpPage.Controllers
         public ActionResult Index()
         {
             ViewBag.DocumentationProvider = Configuration.Services.GetDocumentationProvider();
-            var model = Configuration.Services.GetApiExplorer().ApiDescriptions;
-            return View(model);
+            return View(Configuration.Services.GetApiExplorer().ApiDescriptions);
         }
 
         public ActionResult Api(string apiId)

@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "View1";
+}
+
+<h2>Simple binding</h2>
+
+<h4>
+  @ViewBag.Name
+</h4>
+
+<h4>POST</h4>
+<form method="post" action="@Url.Action("SimpleDestination")">
+    <input type="text" name="firstName" placeholder="First Name" />
+    <input type="text" name="lastName"  placeholder="Last Name"/>
+    <input type="submit" value="Submit" />
+</form>
+
+<h4>GET</h4>
+<form method="get" action="@Url.Action("SimpleDestination")">
+    <input type="text" name="firstName" placeholder="First Name" />
+    <input type="text" name="lastName" placeholder="Last Name" />
+    <input type="submit" value="Submit" />
+</form>
+

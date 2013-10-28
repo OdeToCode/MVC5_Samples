@@ -1,0 +1,8 @@
+﻿@using ModelBinding.Models
+@using ModelBinding.Extensions
+@{
+    var items = typeof (ManagerType).ToSelectListItems((int?)Model);       
+}
+
+
+@Html.DropDownList("", items);

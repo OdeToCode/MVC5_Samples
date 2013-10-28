@@ -1,9 +1,9 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using WebApi2.Areas.HelpPage.Models;
+using ModelBinding.Areas.HelpPage.Models;
 
-namespace WebApi2.Areas.HelpPage.Controllers
+namespace ModelBinding.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.
@@ -19,7 +19,7 @@ namespace WebApi2.Areas.HelpPage.Controllers
         {
             Configuration = config;
         }
-
+        
         public HttpConfiguration Configuration { get; private set; }
 
         public ActionResult Index()

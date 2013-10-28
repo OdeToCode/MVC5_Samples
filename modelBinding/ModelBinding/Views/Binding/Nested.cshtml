@@ -1,0 +1,73 @@
+﻿@model ModelBinding.Models.Project
+
+@{
+    ViewBag.Title = "Nested";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Nested</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Project</h4>
+                <hr />
+                @Html.ValidationSummary(true)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name)
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Leader.FirstName, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Leader.FirstName)
+                        @Html.ValidationMessageFor(model => model.Leader.FirstName)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Leader.LastName, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @*
+                            Won't Work!!
+                            @{
+                                var lastName = Model.Leader.LastName;
+                            }
+                            @Html.EditorFor(model => lastName)*@
+                        @Html.EditorFor(model => model.Leader.LastName)
+                        @Html.ValidationMessageFor(model => model.Leader.LastName)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Leader.HireDate, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Leader.HireDate)
+                        @Html.ValidationMessageFor(model => model.Leader.HireDate)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="col-md-6">
+        @if (ViewBag.ShowResults == true)
+        {
+            <h2>Results</h2>
+            @Html.Partial("_modelStateTable")
+        }
+    </div>
+</div>

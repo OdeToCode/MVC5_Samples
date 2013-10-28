@@ -1,0 +1,17 @@
+﻿
+<ul>
+    <li>
+        <a href="@url("simpleapi")">Simple Binding</a>
+    </li>
+    <li>
+        <a href="@url("complexapi")">Complex API</a>
+    </li>
+    <li>
+        <a href="@url("morecomplexapi")">More Complex API</a>
+    </li>
+</ul>
+
+@helper  url(string action, object values = null)
+{
+    @Url.Action(action, "Binding", values)
+}

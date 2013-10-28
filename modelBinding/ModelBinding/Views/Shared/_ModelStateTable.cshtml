@@ -1,0 +1,40 @@
+﻿<table class="table table-condensed table-striped">
+    <caption>Model State</caption>
+    <thead>
+        <tr>
+            <th>Key</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    @foreach (var pair in ViewData.ModelState)
+    {
+        <tbody>
+            <tr>
+                <td>@pair.Key</td>
+                <td>
+                    <table class="table table-condensed table-striped">
+                        <thead>
+                            <tr>
+                                <th>Value</th>
+                                <th>Errors</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@pair.Value.Value.AttemptedValue</td>
+                                <td>
+                                    <ul class="list-unstyled">
+                                        @foreach (var error in @pair.Value.Errors)
+                                        {
+                                            <li>@error.ErrorMessage</li>
+                                        }
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>

@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "SimpleApi";
+}
+
+<h2>Simple - Api</h2>
+
+
+
+<pre id="request">
+    
+</pre>
+
+<button id="getData">GET</button>
+<button id="postData">POST</button>
+
+<pre id="response">
+</pre>
+
+@section scripts {
+    <script src="~/Scripts/bindingHelp.js"></script>
+    <script>
+        $(function() {
+
+            var data = {
+                name: "Scott"
+            };
+
+            var url = "/api/binding/simple";
+            $.showRequest(data);
+            $("#getData").click(function() {
+                $.get(url, data).always($.showResponse);
+            });
+
+            $("#postData").click(function() {
+                $.post(url, data).always($.showResponse); // no
+                //$.post(url, "=scott").always($.showResponse); // yes
+            });
+
+        });
+    </script>
+}
