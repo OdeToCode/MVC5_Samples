@@ -19,8 +19,8 @@ namespace ModelBinding
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             
             // custom model binding
-            //ModelBinders.Binders.Add(typeof(Account), new AccountModelBinder());
-            //ModelBinders.Binders.Add(typeof(DateTime), new DateTimeModelBinder());
+            ModelBinders.Binders.Add(typeof(Account), new AccountModelBinder());
+            ModelBinders.Binders.Add(typeof(DateTime), new DateTimeModelBinder());
         }
     }
 }
