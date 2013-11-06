@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using BasicIdentityWithDiagrams.Logging;
+using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(BasicIdentityWithDiagrams.Startup))]
@@ -8,6 +9,7 @@ namespace BasicIdentityWithDiagrams
     {
         public void Configuration(IAppBuilder app)
         {
+            app = new AppBuilderLoggingWrapper(app);
             ConfigureAuth(app);
         }
     }
