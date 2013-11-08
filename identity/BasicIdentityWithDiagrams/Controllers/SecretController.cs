@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace BasicIdentityWithDiagrams.Controllers
 {
-    [Authorize(Roles="admin")]
+    [Authorize]
     public class SecretController : Controller
     {
-        public ContentResult Index()
+        public ViewResult Index()
         {
-            return Content("This is a secret...");
+            return View();
         }
 	}
 }
