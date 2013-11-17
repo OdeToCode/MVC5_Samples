@@ -70,11 +70,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppBuilderExtensions.cs" />
     <Compile Include="Greeting.cs" />
     <Compile Include="GreetingController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WrappingLogger.cs" />
+    <Compile Include="WrappingAppBuilder.cs" />
+    <Compile Include="WrappingOptions.cs" />
     <Compile Include="SimpleLogger.cs" />
+    <Compile Include="SimpleLoggerOptions.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

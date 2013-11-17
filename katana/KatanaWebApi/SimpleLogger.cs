@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Owin;
 
 namespace KatanaWebApi
 {
@@ -33,22 +32,5 @@ namespace KatanaWebApi
             }   
         }
         
-    }
-
-    public class SimpleLoggerOptions
-    {
-        public IList<string> RequestKeys { get; set; }
-        public IList<string> ResponseKeys { get; set; }
-        public Action<string, object> Log { get; set; }
-    }
-
-    public static class AppBuilderExtensions
-    {
-        public static IAppBuilder UseSimpleLogger(
-            this IAppBuilder app, 
-            SimpleLoggerOptions options)
-        {
-            return app.Use<SimpleLogger>(options);
-        }
     }
 }
