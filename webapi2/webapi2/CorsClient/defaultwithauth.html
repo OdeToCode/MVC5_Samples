@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+    <h3>WebAPI Auth</h3>
+
+    <form id="userData">
+        <input type="text" name="userName" placeholder="Name" />
+        <input type="password" name="password"  placeholder="Password" />        
+        <input type="password" name="confirmPassword" placeholder="Confirm" /> 
+        <input type="submit" id="register" value="Register" />
+        <input type="submit" id="login" value="Login" />
+    </form>
+    
+    <button id="getPatients">Get Patients</button>
+
+    <pre id="output">
+        
+    </pre>
+
+
+
+    <script src="Scripts/jquery-2.0.3.js"></script>
+    <script>
+
+        $(function () {
+
+            var getPatients = function () {
+                var url = baseUrl + "patient";
+                return $.ajax(baseUrl + "patient", {
+                    type: "GET",
+                    headers: getAuthHeader()
+                }).always(showResponse);
+
+                return false;
+            };
+
+            var getAuthHeader = function(){
+                if (accessToken) {
+                    return { "Authorization": "Bearer " + accessToken };
+                }
+            };
+
+            var saveAccessToken = function (data) {
+                accessToken = data.access_token;
+            };  
+
+            var register = function () {
+                var url = baseUrl + "account/register";
+                var data = $userData.serialize();                
+                $.post(url, data).always(showResponse);
+                return false;
+            };
+
+            var login = function () {
+                var data = $userData.serialize();
+                data = data + "&grant_type=password";
+                $.post(loginUrl, data)
+                    .success(saveAccessToken)
+                    .always(showResponse);
+                return false;
+            };
+
+            var showResponse = function (error) {
+                $output.text(JSON.stringify(error, null, 4));
+            };
+
+            var baseUrl = "http://localhost:20239/api/";
+            var loginUrl = "http://localhost:20239/Token";
+            var accessToken = "";
+
+            var $output = $("#output");
+            var $userData = $("#userData");
+            $("#register").click(register);
+            $("#login").click(login);
+            $("#getPatients").click(getPatients);
+           
+        });
+      
+    </script>
+
+</body>
+</html>
