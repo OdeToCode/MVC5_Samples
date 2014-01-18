@@ -19,11 +19,14 @@ namespace BasicIdentityWithDiagrams.Controllers
         public AccountController()
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
         {
+            var store = new UserStore<ApplicationUser>(new ApplicationDbContext());
+            store.AutoSaveChanges = false;
         }
 
         public AccountController(UserManager<ApplicationUser> userManager)
         {
             UserManager = userManager;
+            
         }
 
         public UserManager<ApplicationUser> UserManager { get; private set; }

@@ -17,12 +17,7 @@ namespace CustomizedUserStore.Identity.Mongo
         public MongoUserStore(BooksDbMongo db)
         {
             _db = db;
-        }
-
-        public void Dispose()
-        {
-            
-        }
+        }     
 
         public Task CreateAsync(User user)
         {
@@ -72,6 +67,11 @@ namespace CustomizedUserStore.Identity.Mongo
         public Task<bool> HasPasswordAsync(User user)
         {
             return Task.FromResult(!String.IsNullOrEmpty(user.PasswordHash));
+        }
+
+        public void Dispose()
+        {
+
         }
     }
 }
