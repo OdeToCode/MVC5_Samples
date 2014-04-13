@@ -13,7 +13,7 @@ namespace BasicIdentityWithDiagrams.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             ContextKey = "BasicIdentityWithDiagrams.Models.ApplicationDbContext";
         }
 

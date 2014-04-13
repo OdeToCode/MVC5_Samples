@@ -1,5 +1,4 @@
-﻿using System.Data.Entity;
-using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace BasicIdentityWithDiagrams.Models
 {

@@ -1,25 +1,10 @@
-﻿using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Web.Cors;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using System.Web.Http.Cors;
 using Newtonsoft.Json.Serialization;
 
 namespace WebApi2
 {
-    //public class Policy : ICorsPolicyProvider
-    //{
-    //    public Task<CorsPolicy> GetCorsPolicyAsync(
-    //        HttpRequestMessage request, 
-    //        CancellationToken cancellationToken)
-    //    {
-            
-    //    }
-    //}
-
-
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
@@ -30,7 +15,7 @@ namespace WebApi2
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
             var cors = new EnableCorsAttribute("*", "*", "*");
-            config.EnableCors(cors);            
+            config.EnableCors(cors);
 
             // Web API routes
             config.MapHttpAttributeRoutes();

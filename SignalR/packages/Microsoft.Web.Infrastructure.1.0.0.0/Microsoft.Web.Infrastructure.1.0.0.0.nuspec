@@ -7,11 +7,9 @@
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
     <licenseUrl>http://go.microsoft.com/fwlink/?LinkID=214339</licenseUrl>
-    <projectUrl>http://www.asp.net/</projectUrl>
-    <iconUrl>https://download-codeplex.sec.s-msft.com/Download?ProjectName=aspnetwebstack&amp;DownloadId=360555</iconUrl>
+    <projectUrl>http://www.asp.net</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This package contains the Microsoft.Web.Infrastructure assembly that lets you dynamically register HTTP modules at run time.</description>
-    <summary>This package contains the Microsoft.Web.Infrastructure assembly that lets you dynamically register HTTP modules at run time.</summary>
-    <tags>ASPNETWEBPAGES</tags>
+    <language>en-US</language>
   </metadata>
 </package>

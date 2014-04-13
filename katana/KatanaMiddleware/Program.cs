@@ -39,15 +39,11 @@ namespace KatanaMiddleware
                 Console.WriteLine("\tSending response: " + ctx.Response.StatusCode);
 
             });
-            
+
             app.Run(ctx =>
-            {
+            {                
                 return ctx.Response.WriteAsync("Hello!");
-            });  
-
-           
-
-                
+            });        
         }
     }
 }
