@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -17,7 +15,9 @@ namespace BasicIdentityWithDiagrams.Controllers
     public class AccountController : Controller
     {
         public AccountController()
-            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
+            : this(new UserManager<ApplicationUser>(
+                new UserStore<ApplicationUser>(
+                    new ApplicationDbContext())))
         {
             var store = new UserStore<ApplicationUser>(new ApplicationDbContext());
             store.AutoSaveChanges = false;

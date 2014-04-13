@@ -28,17 +28,17 @@ namespace KatanaConsole
         public void Configuration(IAppBuilder app)
         {
             // from Owin.Diagnostics
-            app.UseWelcomePage();
+            //app.UseWelcomePage();
 
             // low level app.Run
-            //app.Run(ctx =>
-            //{
-            //    foreach (var kvp in ctx.Environment)
-            //    {
-            //        Console.WriteLine("{0}:{1}", kvp.Key, kvp.Value);
-            //    }
-            //    return ctx.Response.WriteAsync("Hello!");
-            //});
+            app.Run(ctx =>
+            {
+                foreach (var kvp in ctx.Environment)
+                {
+                    Console.WriteLine("{0}:{1}", kvp.Key, kvp.Value);
+                }
+                return ctx.Response.WriteAsync("Hello!");
+            });
 
 
             // Synch Handler

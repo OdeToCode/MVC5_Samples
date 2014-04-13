@@ -1,28 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Microsoft.AspNet.Identity.UserManager&lt;TUser&gt;">
-    <Position X="7.25" Y="0.5" Width="3" />
+  <Class Name="Microsoft.AspNet.Identity.UserManager&lt;TUser&gt;" Collapsed="true">
+    <Position X="22.5" Y="0.5" Width="1.5" />
     <TypeIdentifier />
-    <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="Microsoft.AspNet.Identity.IUser">
-    <Position X="4.5" Y="0.75" Width="1.5" />
+  <Interface Name="Microsoft.AspNet.Identity.IUserStore&lt;TUser, TKey&gt;">
+    <Position X="9.75" Y="0.5" Width="2.5" />
     <TypeIdentifier />
   </Interface>
-  <Interface Name="Microsoft.AspNet.Identity.IUserStore&lt;TUser&gt;">
-    <Position X="2.5" Y="0.5" Width="1.75" />
+  <Interface Name="Microsoft.AspNet.Identity.IUserSecurityStampStore&lt;TUser, TKey&gt;">
+    <Position X="9.75" Y="3.25" Width="2.75" />
     <TypeIdentifier />
   </Interface>
-  <Interface Name="Microsoft.AspNet.Identity.IUserPasswordStore&lt;TUser&gt;">
-    <Position X="3.25" Y="3.5" Width="2.25" />
+  <Interface Name="Microsoft.AspNet.Identity.IUserRoleStore&lt;TUser, TKey&gt;">
+    <Position X="0.5" Y="3.25" Width="2.5" />
     <TypeIdentifier />
   </Interface>
-  <Interface Name="Microsoft.AspNet.Identity.IUserLoginStore&lt;TUser&gt;">
-    <Position X="0.5" Y="3.25" Width="2" />
+  <Interface Name="Microsoft.AspNet.Identity.IUserPasswordStore&lt;TUser, TKey&gt;">
+    <Position X="3.75" Y="3.25" Width="2.25" />
     <TypeIdentifier />
   </Interface>
-  <Interface Name="Microsoft.AspNet.Identity.IUserClaimStore&lt;TUser&gt;">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+  <Interface Name="Microsoft.AspNet.Identity.IUserLoginStore&lt;TUser, TKey&gt;">
+    <Position X="4.25" Y="6.75" Width="2.75" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.AspNet.Identity.IUserEmailStore&lt;TUser, TKey&gt;">
+    <Position X="7.75" Y="7.25" Width="2.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.AspNet.Identity.IUserConfirmationStore&lt;TUser, TKey&gt;">
+    <Position X="10.75" Y="7.25" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.AspNet.Identity.IUserClaimStore&lt;TUser, TKey&gt;">
+    <Position X="6.75" Y="3.25" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.AspNet.Identity.IRoleStore&lt;TRole, TKey&gt;">
+    <Position X="22.5" Y="1.75" Width="1.5" />
     <TypeIdentifier />
   </Interface>
   <Font Name="Segoe UI" Size="9" />

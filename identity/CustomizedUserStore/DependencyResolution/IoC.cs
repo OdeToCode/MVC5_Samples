@@ -20,8 +20,13 @@ namespace CustomizedUserStore.DependencyResolution
                                     });
                             x.For<DbContext>().HttpContextScoped().Use<BooksDbEf>();
                                                         
-                            x.For<IUserPasswordStore<User>>().Use<EntityFrameworkUserStore>();
-                            x.For<IUserPasswordStore<User>>().Use<MongoUserStore>();
+                            x.For<IUserPasswordStore<User>>()
+                                .HttpContextScoped()
+                                .Use<EntityFrameworkUserStore>();
+                            
+                            x.For<IUserPasswordStore<User>>()
+                                .HttpContextScoped()
+                                .Use<MongoUserStore>();
 
                         });
             return ObjectFactory.Container;

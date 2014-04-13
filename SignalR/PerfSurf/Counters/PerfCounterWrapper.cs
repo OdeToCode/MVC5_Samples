@@ -10,8 +10,15 @@ namespace PerfSurf.Counters
     {
         public PerfCounterWrapper(string name, string category, string counter, string instance = "")
         {
-            Name = name;
-            _counter = new PerformanceCounter(category, counter, instance, readOnly:true);            
+            try
+            {
+                Name = name;
+                _counter = new PerformanceCounter(category, counter, instance, readOnly: true);
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
 
         public string Name { get; protected set; }
@@ -19,10 +26,15 @@ namespace PerfSurf.Counters
         {
             get
             {
-                return _counter.NextValue();
+                if (_counter != null)
+                {
+                    return _counter.NextValue();
+                }
+                return _rand.Next(0, 100);
             }
         }
 
+        private static Random _rand = new Random();
         PerformanceCounter _counter;
     }
 }

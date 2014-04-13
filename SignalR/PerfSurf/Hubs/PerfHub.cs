@@ -26,7 +26,7 @@ namespace PerfSurf.Hubs
             var task = Task.Factory.StartNew(async () =>
             {
                 var perfSerivce = new PerfCounterService();
-                wh  ile (true)
+                while (true)
                 {
                     var results = perfSerivce.GetResults();
                     Clients.All.newCounters(results);

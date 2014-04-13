@@ -14,7 +14,9 @@ using MongoDB.Bson;
 namespace WebApi2.Controllers
 {
 
-    //[EnableCors(origins:"*", headers:"*", methods:"GET")] enabled globally
+    
+    
+    //[EnableCors(origins:"*", headers:"*", methods:"GET")] 
     [Authorize]
     public class PatientController : ApiController
     {
@@ -39,10 +41,12 @@ namespace WebApi2.Controllers
             {
                 return NotFound();
             }
+            
+
             return Ok(patient);                
         }
         
-        [Route("api/patient/{id}/medications")]        
+        [Route("{id}/medications")]        
         public IHttpActionResult GetMedications(string id)
         {
             var patient = _db.FindOneById(ObjectId.Parse(id));

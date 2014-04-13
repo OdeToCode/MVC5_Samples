@@ -8,8 +8,8 @@ namespace KatanaAppFunc
         {
             app.UseHelloWorld(new HelloWorldOptions
             {
-                IncludeTimestamp = false,
-                Name = "Earth"
+                IncludeTimestamp = true,
+                Name = "Scott"
             });
         }
     }
