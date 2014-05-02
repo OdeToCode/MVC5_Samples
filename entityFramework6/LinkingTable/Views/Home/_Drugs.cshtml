@@ -1,0 +1,25 @@
+﻿@model LinkingTable.Models.Study
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var drug in Model.Drugs)
+        {
+            <tr>
+                <td>@drug.Id</td>
+                <td>@drug.Name</td>
+                <td>
+                    <form method="POST" action="@Url.Action("Delete", new {studyId = Model.Id, drugId = @drug.Id})">
+                        <input type="submit" value="Delete" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

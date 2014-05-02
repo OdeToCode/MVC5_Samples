@@ -1,0 +1,31 @@
+﻿@model List<LinkingTable.Models.Study>
+<html>
+    <head>
+        <title>Trials</title>
+    </head>
+    <body>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Drugs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var study in Model)
+                    {
+                        <tr>
+                            <td>@study.Id</td>
+                            <td>@study.Name</td>
+                            <td>
+                                @Html.Partial("_Drugs", study)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table> 
+        </div>
+    </body>
+</html>
