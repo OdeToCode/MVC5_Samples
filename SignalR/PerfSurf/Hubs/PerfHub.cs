@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.AspNet.SignalR;
+﻿using Microsoft.AspNet.SignalR;
 using System.Threading.Tasks;
-using System.Threading;
 using PerfSurf.Counters;
 
 namespace PerfSurf.Hubs
@@ -26,7 +21,7 @@ namespace PerfSurf.Hubs
             var task = Task.Factory.StartNew(async () =>
             {
                 var perfSerivce = new PerfCounterService();
-                wh  ile (true)
+                while (true)
                 {
                     var results = perfSerivce.GetResults();
                     Clients.All.newCounters(results);
