@@ -1,7 +1,5 @@
 ﻿using Microsoft.Owin.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace KatanaAppFunc
 {

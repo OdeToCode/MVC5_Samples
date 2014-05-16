@@ -11,7 +11,7 @@ namespace PerfSurf.Counters
         public PerfCounterWrapper(string name, string category, string counter, string instance = "")
         {
             Name = name;
-            _counter = new PerformanceCounter(category, counter, instance, readOnly:true);            
+            _counter = new PerformanceCounter(category, counter, instance, readOnly: true);
         }
 
         public string Name { get; protected set; }

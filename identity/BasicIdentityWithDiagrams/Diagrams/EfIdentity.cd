@@ -1,16 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Microsoft.AspNet.Identity.EntityFramework.IdentityUser">
-    <Position X="1.75" Y="1" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="Microsoft.AspNet.Identity.EntityFramework.UserStore&lt;TUser&gt;">
-    <Position X="3.75" Y="0.75" Width="2.5" />
+  <Class Name="Microsoft.AspNet.Identity.EntityFramework.IdentityUser&lt;TKey, TLogin, TRole, TClaim&gt;">
+    <Position X="7.75" Y="0.75" Width="1.75" />
     <TypeIdentifier />
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Microsoft.AspNet.Identity.EntityFramework.IdentityDbContext&lt;TUser&gt;">
-    <Position X="1.25" Y="4" Width="2.25" />
+  <Class Name="Microsoft.AspNet.Identity.EntityFramework.UserStore&lt;TUser, TRole, TKey, TUserLogin, TUserRole, TUserClaim&gt;" Collapsed="true">
+    <Position X="4.75" Y="2.5" Width="2.75" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Microsoft.AspNet.Identity.EntityFramework.IdentityDbContext&lt;TUser, TRole, TKey, TUserLogin, TUserRole, TUserClaim&gt;">
+    <Position X="2.25" Y="2.75" Width="2" />
     <TypeIdentifier />
   </Class>
   <Font Name="Segoe UI" Size="9" />
