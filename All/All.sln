@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi2", "..\webapi2\webap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsClient", "..\webapi2\webapi2\CorsClient\CorsClient.csproj", "{F9DEBBCC-F0E8-4029-AEDB-81C6471B78F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelBinding", "..\modelBinding\ModelBinding\ModelBinding.csproj", "{3F75F210-2120-44D5-9D78-8372A58C8AA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{F9DEBBCC-F0E8-4029-AEDB-81C6471B78F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9DEBBCC-F0E8-4029-AEDB-81C6471B78F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9DEBBCC-F0E8-4029-AEDB-81C6471B78F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F75F210-2120-44D5-9D78-8372A58C8AA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F75F210-2120-44D5-9D78-8372A58C8AA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F75F210-2120-44D5-9D78-8372A58C8AA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F75F210-2120-44D5-9D78-8372A58C8AA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

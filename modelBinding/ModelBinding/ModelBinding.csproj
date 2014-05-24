@@ -144,6 +144,7 @@
     <Compile Include="Controllers\ApiBindingController.cs" />
     <Compile Include="Controllers\BindingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Extensions\AccountModelBinder.cs" />
     <Compile Include="Extensions\DateTimeModelBinder.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
@@ -218,6 +219,7 @@
     <Content Include="Views\Binding\SimpleApi.cshtml" />
     <Content Include="Views\Binding\ComplexApi.cshtml" />
     <Content Include="Views\Binding\MoreComplexApi.cshtml" />
+    <Content Include="Views\Person\Update.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

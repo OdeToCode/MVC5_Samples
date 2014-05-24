@@ -29,6 +29,7 @@ namespace KatanaAppFunc
                 }
                 await writer.WriteAsync("Hello, " + _options.Name + "!");
             }
+           
         }
     }
 }
