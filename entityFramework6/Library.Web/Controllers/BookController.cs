@@ -58,6 +58,9 @@ namespace Library.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include="Id,Title,Category")] Book book)
         {
+         
+
+
             if (ModelState.IsValid)
             {
                 db.Books.Add(book);

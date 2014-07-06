@@ -35,6 +35,9 @@ namespace CustomizedUserStore.Controllers
         {
             if (ModelState.IsValid)
             {
+
+ 
+
                 var user = await _userManager.FindAsync(model.UserName, model.Password);
                 if (user != null)
                 {
