@@ -13,8 +13,8 @@ using MongoDB.Bson;
 
 namespace WebApi2.Controllers
 {
-    [EnableCors(origins:"*", headers:"*", methods:"GET")] 
-    //[Authorize]
+    //[EnableCors(origins:"*", headers:"*", methods:"GET")] 
+    [Authorize]
     public class PatientController : ApiController
     {
         MongoCollection<Patient> _db;

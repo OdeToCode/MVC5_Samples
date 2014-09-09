@@ -7,13 +7,13 @@ namespace Library.Web.DataContexts.BookDbMigrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class SchemaChange : IMigrationMetadata
+    public sealed partial class Create : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SchemaChange));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Create));
         
         string IMigrationMetadata.Id
         {
-            get { return "201310142327073_SchemaChange"; }
+            get { return "201408281456493_Create"; }
         }
         
         string IMigrationMetadata.Source

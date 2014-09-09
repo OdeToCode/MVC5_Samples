@@ -178,13 +178,9 @@
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DataContexts\BookDb.cs" />
-    <Compile Include="DataContexts\BookDbMigrations\201310141902034_InitialCreate.cs" />
-    <Compile Include="DataContexts\BookDbMigrations\201310141902034_InitialCreate.Designer.cs">
-      <DependentUpon>201310141902034_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataContexts\BookDbMigrations\201310142327073_SchemaChange.cs" />
-    <Compile Include="DataContexts\BookDbMigrations\201310142327073_SchemaChange.Designer.cs">
-      <DependentUpon>201310142327073_SchemaChange.cs</DependentUpon>
+    <Compile Include="DataContexts\BookDbMigrations\201408281456493_Create.cs" />
+    <Compile Include="DataContexts\BookDbMigrations\201408281456493_Create.Designer.cs">
+      <DependentUpon>201408281456493_Create.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\BookDbMigrations\Configuration.cs" />
     <Compile Include="DataContexts\IdentityDb.cs" />
@@ -277,11 +273,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DataContexts\BookDbMigrations\201310141902034_InitialCreate.resx">
-      <DependentUpon>201310141902034_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataContexts\BookDbMigrations\201310142327073_SchemaChange.resx">
-      <DependentUpon>201310142327073_SchemaChange.cs</DependentUpon>
+    <EmbeddedResource Include="DataContexts\BookDbMigrations\201408281456493_Create.resx">
+      <DependentUpon>201408281456493_Create.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityDbMigrations\201310141901036_InitialCreate.resx">
       <DependentUpon>201310141901036_InitialCreate.cs</DependentUpon>
